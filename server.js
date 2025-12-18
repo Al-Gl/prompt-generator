@@ -26,10 +26,13 @@ app.post('/api/generate', async (req, res) => {
     console.log(`Processing seed word: "${seedWord}"`);
 
     // Initialize model with Google Search tool (Grounding)
+    // Change the model ID to a current 2025 stable version
     const model = genAI.getGenerativeModel({
-      model: 'gemini-1.5-flash-002',
+      model: 'gemini-2.0-flash', // Use 2.0 or 2.5 for better Search Grounding
       tools: [{
-        googleSearch: {}  // Enable Google Search Grounding
+        // In 2025, the tool name is simplified to 'google_search'
+        // for newer models, or 'googleSearch' depending on the SDK version
+        googleSearch: {}
       }]
     });
 
